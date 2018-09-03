@@ -112,16 +112,7 @@ return(n==0)?0 :somaAlgarismos(n/10)+(n%10);
   * @return 
   */
  //Exercicio 8
-   
-   
-   
-   static String combinacoes(int n,int cont){
 
-       if(factorial(n)==cont)return"";
-       cont++;
-  return chars(n) + combinacoes(n,cont);
-   }
-   
     static String chars(int n){
   char chr ='A';
    String letras ="";
@@ -130,28 +121,34 @@ return(n==0)?0 :somaAlgarismos(n/10)+(n%10);
   letras+=""+ chr++;
    
    }
- return letras;
-   } 
+ 
+   return letras;
    
-   public static void imprimeAnagramas(String prefixo, String palavra) {
+    } 
+  
+  /**
+  * Gera todas as possiveir combinações das primeiras n letras do alfabeto
+  * @param x
+  * @return 
+  */
+ //Exercicio 8
+   
+   public static void gerarAnagramas(String prefixo, String palavra) {
 		if (palavra.length() <= 1) {
 			System.out.println(prefixo + palavra);
 		} else {
 			for (int i = 0; i < palavra.length(); i++) {
-				String cur = palavra.substring(i, i + 1);
-				String before = palavra.substring(0, i); 
-				String after = palavra.substring(i + 1); 
-				imprimeAnagramas(prefixo + cur, before + after);
+				String primeio = palavra.substring(i, i + 1);
+				String doMeio = palavra.substring(0, i); 
+				String depois = palavra.substring(i + 1); 
+				gerarAnagramas(prefixo + primeio, doMeio + depois);
+
 			}
                 }}
    
-    static long fibonacci(int x){
-    if(x<=1) return x;
+  
     
-    return fibonacci(x-1)+fibonacci(x-2);}
-    
-    
-//1 + (int) (Math.random() * 2) 
+
     /**
      * @param args the command line arguments
      */
@@ -162,7 +159,7 @@ return(n==0)?0 :somaAlgarismos(n/10)+(n%10);
  
 
         
-    imprimeAnagramas("",chars(4));
+    gerarAnagramas("",chars(2));
        
         
  
